@@ -1,8 +1,8 @@
-import { ObjectInterface } from "./objectInterface";
-import {Line} from "@laser-dac/draw";
-import {degsToRad, polarToCartesianVector} from "../util/vector";
-import {randomInRange, randomWithScale} from "../util/random";
-import {SCREEN_BOTTOM, SCREEN_LEFT, SCREEN_RIGHT, SCREEN_TOP} from "../util/const";
+import { Object } from './object';
+import {Line} from '@laser-dac/draw';
+import {degsToRad, polarToCartesianVector} from '../util/vector';
+import {randomInRange, randomWithScale} from '../util/random';
+import {SCREEN_BOTTOM, SCREEN_LEFT, SCREEN_RIGHT, SCREEN_TOP} from '../settings';
 
 const SPARKLE_MIN_SIZE = 0.005;
 const SPARKLE_MAX_SIZE = 0.009;
@@ -11,7 +11,7 @@ const SPARKLE_ROTATION_MAX_RAD = degsToRad(120);
 const ARROW_SIZE = 0.015;
 const ARROW_COLOR : [ number, number, number ] = [ 1, 1, 1 ];
 
-export class Projectile implements ObjectInterface
+export class Projectile implements Object
 {
     private x : number;
     private y : number;

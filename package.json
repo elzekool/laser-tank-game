@@ -2,7 +2,7 @@
   "name": "laser-tank-game",
   "version": "1.0.0",
   "description": "Simple Laser Tank game",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "run": "ts-node-dev --project tsconfig.json index.ts"
   },

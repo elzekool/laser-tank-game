@@ -1,4 +1,4 @@
-import { Shape } from "@laser-dac/draw/dist/Shape";
+import { Shape } from '@laser-dac/draw/dist/Shape';
 
 export interface IntersectionLineCoord {
     x : number,
@@ -10,7 +10,7 @@ export interface IntersectionLine {
     to : IntersectionLineCoord
 }
 
-export interface ObjectInterface {
+export interface Object {
     intersectionTestLines() : IntersectionLine[],
     draw() : Shape[]
 }

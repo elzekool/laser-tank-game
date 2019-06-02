@@ -1,4 +1,4 @@
-import {IntersectionLine, IntersectionLineCoord, ObjectInterface} from "../objects/objectInterface";
+import {IntersectionLine, IntersectionLineCoord, Object} from "../objects/object";
 
 const CCW = (p1 : IntersectionLineCoord, p2 : IntersectionLineCoord, p3 : IntersectionLineCoord) : boolean => {
     return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x);
@@ -12,7 +12,7 @@ const linesIntersect = (line1 : IntersectionLine, line2 : IntersectionLine) : bo
     );
 };
 
-export const objectsIntersect = (obj1 : ObjectInterface, obj2 : ObjectInterface) : boolean => {
+export const objectsIntersect = (obj1 : Object, obj2 : Object) : boolean => {
     const obj1IntersectionLines = obj1.intersectionTestLines();
     const obj2IntersectionLines = obj2.intersectionTestLines();
 

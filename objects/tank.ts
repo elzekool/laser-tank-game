@@ -1,20 +1,22 @@
 import * as path from 'path';
 import { Rect, Line, IldaFont, loadIldaFile } from '@laser-dac/draw';
-import { ObjectInterface } from "./objectInterface";
-import {degsToRad, polarToCartesianVector} from "../util/vector";
-import * as fontMap from '../util/fontMap.json';
+import { Object } from './object';
+import {degsToRad, polarToCartesianVector} from '../util/vector';
+import * as fontMap from '../assets/fontMap.json';
 
-const fontFile = loadIldaFile(path.resolve(__dirname, '../util/font.ild'));
+const fontFile = loadIldaFile(path.resolve(__dirname, '../assets/font.ild'));
 
-const TOURET_WIDTH = 0.02;
-const TOURET_HEIGHT = 0.015;
-const BODY_WIDTH = 0.04;
-const BODY_HEIGHT = 0.015;
-const GUN_SIZE = 0.03;
-const GUN_COLOR  : [ number, number, number ] = [ 1, 1, 0 ];
-const TANK_COLOR : [ number, number, number ] = [ 0, 1, 0 ];
+const TOURET_WIDTH = 0.015;
+const TOURET_HEIGHT = 0.01;
+const BODY_WIDTH = 0.03;
+const BODY_HEIGHT = 0.012;
+const GUN_SIZE = 0.02;
 
-export class Tank implements ObjectInterface
+const GUN_COLOR  : [ number, number, number ] = [ 0.83, 0.33, 0 ];
+const TANK_COLOR : [ number, number, number ] = [ 0.95, 0.61, 0.07 ];
+//const SCORE_COLOR : [ number, number, number ] = [ 0.16, 0.50, 0.73 ];
+
+export class Tank implements Object
 {
     private x : number;
     private y : number;
@@ -115,6 +117,8 @@ export class Tank implements ObjectInterface
                 text : this.score.toString(),
                 x : this.x - (BODY_WIDTH/2) - 0.06,
                 y : this.y - 0.035,
+                // TODO: Depends on https://github.com/Volst/laser-dac/pull/53
+                //color : SCORE_COLOR,
                 size: 0.2,
                 fontWidth: 0.18
             })

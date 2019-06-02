@@ -1,15 +1,13 @@
-import {IntersectionLine, ObjectInterface} from "./objectInterface";
-import {Line} from "@laser-dac/draw";
-import {Tank} from "./tank";
-
-import {randomInRange, randomWithScale} from "../util/random";
-import {cartesianToPolarVector, polarToCartesianVector} from "../util/vector";
-import {Path} from "@laser-dac/draw/dist";
-import {SCREEN_BOTTOM, SCREEN_LEFT, SCREEN_PLAYFIELD_TOP, SCREEN_RIGHT} from "../util/const";
+import {IntersectionLine, Object} from './object';
+import {Tank} from './tank';
+import {Path} from '@laser-dac/draw';
+import {randomInRange, randomWithScale} from '../util/random';
+import {cartesianToPolarVector, polarToCartesianVector} from '../util/vector';
+import {SCREEN_BOTTOM, SCREEN_LEFT, SCREEN_PLAYFIELD_TOP, SCREEN_RIGHT} from '../settings';
 
 const GROUND_COLOR : [ number, number, number ] = [ 0, 0.5, 0 ];
 const GROUND_MIN = SCREEN_PLAYFIELD_TOP;
-const GROUND_MAX = SCREEN_BOTTOM;
+const GROUND_MAX = SCREEN_BOTTOM - 0.05;
 const TANK_PLATFORM_WIDTH = 0.06;
 const MIN_SPLITS = 10;
 const MAX_SPLITS = 25;
@@ -25,7 +23,7 @@ interface GroundLine {
     unbreakable : boolean
 }
 
-export class Ground implements ObjectInterface
+export class Ground implements Object
 {
     private groundLines : GroundLine[];
     private tank1 : Tank;
@@ -122,6 +120,8 @@ export class Ground implements ObjectInterface
     }
 
     addHit(x : number) {
+        // TODO: Fix this ugly code
+
         for (let i : number = 0; i < this.groundLines.length; i++) {
             const groundLine = this.groundLines[i];
 
